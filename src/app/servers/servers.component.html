@@ -1,2 +1,10 @@
+<input id="serverName" type="text" (input)="onUpdateServer($event)" />
+<p>
+  {{ addedServerName }}
+</p>
+<button id="addNewServer" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onAddNewServer()">Add New Server</button>
+<p>
+    The New Server Added is {{ serverName }}
+</p>
 <app-server></app-server>
 <app-server></app-server>
