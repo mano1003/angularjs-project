@@ -1,9 +1,11 @@
 <div>
 
-  <p><strong>Server's List</strong></p>
   <div>
-    <p>
-      The Server ID is {{ serverId }} and Server Name is {{ serverName }}
+    <p>The Server ID is {{ serverId }} and Server Name is {{ serverName }}</p>
+    <p
+      [ngStyle]="{'backgroundColor': getColor()}"
+      [ngClass]="{online: serverStatus === 'online'}">
+      The status of the server is {{ getServerStatus() }}
     </p>
   </div>
 </div>

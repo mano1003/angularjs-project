@@ -8,6 +8,8 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverName = '';
   addedServerName = '';
+  serverCreated = false;
+  servers = ['TestServer1', 'TestServer2'];
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
@@ -16,13 +18,9 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
   onAddNewServer() {
-    return this.serverName = 'New Server Name';
+    this.servers.push(this.serverName);
+    this.serverCreated = true;
   }
-  /*
-  onUpdateServer(event: any) {
-    this.addedServerName = event.target.value;
-  }
-  */
   onUpdateServer(event: Event) {
     this.addedServerName = (event.target as HTMLInputElement).value;
   }

@@ -4,6 +4,12 @@
     {{ username }}
   </p>
   <div>
-    <button [disabled]="(username == '') ? true:false" (click)="resetUserName()">Add User Name</button>
+    <button
+      class="btn btn-primary"
+      [disabled]="username === ''"
+      (click)="resetUserName()"
+    >
+      Add User Name
+    </button>
   </div>
 </div>

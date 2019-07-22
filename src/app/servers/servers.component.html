@@ -1,10 +1,26 @@
-<input id="serverName" type="text" (input)="onUpdateServer($event)" />
-<p>
-  {{ addedServerName }}
-</p>
-<button id="addNewServer" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onAddNewServer()">Add New Server</button>
-<p>
-    The New Server Added is {{ serverName }}
-</p>
-<app-server></app-server>
-<app-server></app-server>
+<div>
+  <input
+    class="form-content"
+    id="serverName"
+    type="text"
+    (input)="onUpdateServer($event)"
+    [(ngModel)]="serverName"
+  />
+ <p></p>
+ <div>
+    <button
+      id="addNewServer"
+      class="btn btn-primary"
+      [disabled]="!allowNewServer"
+      (click)="onAddNewServer()"
+    >
+      Add New Server
+    </button>
+  </div>
+  <p *ngIf="serverCreated; else noServer">The New Server Added is {{ serverName }}</p>
+  <ng-template #noServer>
+    <p>No Server was created!</p>
+  </ng-template>
+  <p><strong>Server's List</strong></p>
+  <app-server *ngFor="let server of servers"></app-server>
+</div>
